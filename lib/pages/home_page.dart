@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:scanner/providers/scan_list_provider.dart';
 import 'package:scanner/providers/ui_provider.dart';
-import 'package:scanner/widget/custom_list_tile.dart';
+import 'package:scanner/widget/custom_list_view.dart';
 import 'package:scanner/widget/custom_navigationBar.dart';
 import 'package:scanner/widget/scanner_floatingButton.dart';
 
@@ -44,12 +44,12 @@ class HomePage extends StatelessWidget {
     switch(ventanaSeleccionada.ventanaSeleccionada){
       case 0:
       scanListProvider.scanPorTipo('geo');
-      return  CustomListTile(tipo: 'geo');
+      return  CustomListView(tipo: 'geo');
       case 1:
       scanListProvider.scanPorTipo('http');
-      return  CustomListTile(tipo: 'http');
+      return  CustomListView(tipo: 'http');
       default:
-      return  CustomListTile(tipo: 'geo');
+      return  CustomListView(tipo: 'geo');
     }
   }
 }

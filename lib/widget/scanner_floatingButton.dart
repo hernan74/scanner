@@ -24,9 +24,11 @@ class ScannerFloatingButton extends StatelessWidget {
       final scanListProvider=Provider.of<ScanListProvider>(context,listen: false);
       final uiProvider=Provider.of<UiProvider>(context,listen: false);
 
-       String barCode=uiProvider.ventanaSeleccionada==0? 'geo:15.33,15.50':'https://www.google.com/?hl=es';
+       String barCode=uiProvider.ventanaSeleccionada==0? 'geo:-26.411671,-54.583593':'https://flutter.dev';
        
-
+       if(barCode=='-1'){
+       return  ; 
+      }
        scanListProvider.nuevoScan(barCode);
        
       }

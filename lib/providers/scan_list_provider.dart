@@ -13,7 +13,7 @@ List<ScanModel> scanList=[];
 nuevoScan(String valor)async {
 
     final nuevoScan=new ScanModel(valor: valor);
-    await DBProvider.db.crearNuevoScan(nuevoScan);
+    nuevoScan.id=  await DBProvider.db.crearNuevoScan(nuevoScan);
 
       scanList.add(nuevoScan);
       notifyListeners();
@@ -37,6 +37,8 @@ nuevoScan(String valor)async {
   }
 
    eliminarScansPorId(int id){
-    DBProvider.db.borrarScanPorId(id);
+     DBProvider.db.borrarScanPorId(id);
+     scanList.removeWhere((element)=> id==element.id);
+     notifyListeners();
   }
 }
